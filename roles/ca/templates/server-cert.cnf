@@ -18,11 +18,11 @@ req_extensions          = server_reqext         # Desired extensions
 
 [ server_dn ]
 0.domainComponent       = "za"
-1.domainComponent       = "MagicFish"
-2.domainComponent       = "."
-organizationName        = "."
-organizationalUnitName  = "Magicfish"
-commonName              = "MagicFish"
+1.domainComponent       = "co"
+2.domainComponent       = "MagicFish"
+organizationName        = "MagicFish Inc"
+organizationalUnitName  = "Magicfish CA"
+commonName              = "MagicFish CA"
 
 [ server_reqext ]
 keyUsage                = critical,digitalSignature,keyEncipherment
