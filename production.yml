@@ -1,10 +1,10 @@
 ---
-  - hosts: 167.99.202.45
+  - hosts: ca.magicfish.dev
     become: true
     roles:
     - role: ubuntu_base
     - role: ca
-  - hosts: 167.99.200.238
+  - hosts: vpn.magicfish.dev
     become: true
     roles:
     - role: ubuntu_base
