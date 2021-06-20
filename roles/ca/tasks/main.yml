@@ -85,4 +85,17 @@
       recurse: true
       mode: '0700'
 
+#Copy signing ca config to host from template folder
+  - name: Copy signing CA config to host
+    template:
+      src: ./signing-ca.cnf
+      dest: ~/signing-ca.cnf
+      owner: root
+      group: root
+      mode: '0440' #--r--r--
 
+#Create root CA by running the bash script in files
+  - name: Run create signing CA script
+    script: ./create_signing_ca.sh
+    args:
+      creates: ~/ca/root-ca/db/signing-ca.db
