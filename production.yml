@@ -1,0 +1,11 @@
+---
+  - hosts: ca.magicfish.dev
+    become: true
+    roles:
+    - role: ubuntu
+    - role: ca
+  - hosts: vpn.magicfish.dev
+    become: true
+    roles:
+    - role: ubuntu
+    - role: openvpn
