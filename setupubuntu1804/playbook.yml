@@ -8,26 +8,26 @@
     - name: Install Prerequisites
       apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
 
-  # Sudo Group Setup
-    - name: Make sure we have a 'wheel' group
+  # Set up Sudo Group
+    - name: Make sure we have a 'sudo' group
       group:
-        name: wheel
+        name: sudo
         state: present
 
-    - name: Allow 'wheel' group to have passwordless sudo
+    - name: Allow 'sudo' group to have passwordless sudo
      lineinfile:
         path: /etc/sudoers
         state: present
-        regexp: '^%wheel'
-        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
         validate: '/usr/sbin/visudo -cf %s'
 
-  # User + Key Setup
-    - name: Create a new regular user with sudo privileges
+  # User & Key Setup
+    - name: Create new user with sudo privileges.
       user:
         name: "{{ create_user }}"
         state: present
-        groups: wheel
+        groups: sudo
         append: true
         create_home: true
         shell: /bin/bash
@@ -45,10 +45,14 @@
         regexp: '^#?PermitRootLogin'
         line: 'PermitRootLogin prohibit-password'
 
-  # Install Packages
-    - name: Update apt
+  # Update and upgrade packages
+    - name: Update apt packages
       apt: update_cache=yes
 
+    - name: Upgrade apt packages
+      apt: Upgrade=yes
+
+  #Install system packages
     - name: Install required system packages
       apt: name={{ sys_packages }} state=latest
 
