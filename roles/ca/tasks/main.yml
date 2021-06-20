@@ -94,7 +94,7 @@
       group: root
       mode: '0440' #--r--r--
 
-#Create root CA by running the bash script in files
+#Create signing CA by running the bash script in files
   - name: Run create signing CA script
     script: ./create_signing_ca.sh
     args:
