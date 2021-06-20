@@ -1,4 +1,4 @@
 all:
   hosts:
-    ca.magicfish.dev:
-    vpn.magicfish.dev:
+    167.99.202.45:
+    167.99.200.238:
