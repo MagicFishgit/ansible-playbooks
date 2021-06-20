@@ -1,4 +1,3 @@
----
   vars_files:
     - vars/default.yml
 
