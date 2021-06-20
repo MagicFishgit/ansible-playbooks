@@ -23,14 +23,14 @@
         validate: '/usr/sbin/visudo -cf %s'
 
   # User & Key Setup
-    - name: Create new user with sudo privileges.
-      user:
-        name: "{{ create_user }}"
-        state: present
-        groups: sudo
-        append: true
-        create_home: true
-        shell: /bin/bash
+    #- name: Create new user with sudo privileges.
+      #user:
+        #name: "{{ create_user }}"
+        #state: present
+        #groups: sudo
+        #append: true
+        #create_home: true
+        #shell: /bin/bash
 
     - name: Set authorized key for remote user
       authorized_key:
