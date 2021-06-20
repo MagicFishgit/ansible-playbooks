@@ -9,7 +9,7 @@
       state: directory
       mode: 0700
 
-  - name: Add easyrsa to $PATH
+  - name: Add easyrsa to PATH
     ansible.bultin.lineinfile:
       path: /home/admin/.bashrc
       regexp: '^export PATH=$PATH'
