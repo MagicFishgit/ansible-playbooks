@@ -49,8 +49,10 @@
     - name: Update apt packages
       apt: update_cache=yes
 
-    - name: Upgrade apt packages
-      apt: upgrade
+    - name: Upgrade all packages to the latest version
+      apt:
+         name: "*"
+         state: latest
 
   #Install system packages
     - name: Install required system packages
