@@ -1,7 +1,0 @@
-#Create signing directory - certs
-  - name: Create signing certs directory
-    file:
-      path: vpn.magicfish.dev/certs
-      state: directory
-      recurse: true
-      mode: '0700'
