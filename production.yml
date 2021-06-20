@@ -3,11 +3,13 @@
     become: true
     roles:
     - role: ubuntu_base
+    - role: vpn_base
     - role: ca
   - hosts: vpn.magicfish.dev
     become: true
     roles:
     - role: ubuntu_base
+    - role: vpn_base
     - role: vpn
   
   
