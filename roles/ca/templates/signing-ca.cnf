@@ -26,8 +26,8 @@ req_extensions          = ca_reqext             # Desired extensions
 0.domainComponent       = "za"
 1.domainComponent       = "co"
 organizationName        = "MagicFish Inc"
-organizationalUnitName  = "MagicFish Signing CA"
-commonName              = "MagicFish Signing CA"
+organizationalUnitName  = "MagicFish CA"
+commonName              = "MagicFish CA"
 
 [ ca_reqext ]
 keyUsage                = critical,keyCertSign,cRLSign
