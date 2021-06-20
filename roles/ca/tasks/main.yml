@@ -2,6 +2,8 @@
   - name: Install required system packages
     apt: name={{ sys_packages }} state=latest
 
+#1. Create Root CA
+
 #Create Root directory - Private
   - name: Create root private directory
     file:
@@ -26,10 +28,61 @@
       recurse: true
       mode: '0700'
 
-#Create Root directory - crl
+#Create Root directory - certs
   - name: Create root certs directory
     file:
       path: certs
       state: directory
       recurse: true
       mode: '0700'
+
+#Copy root ca config to host from template folder
+  - name: Copy root CA config to host
+    template:
+      src: ./root-ca.cnf
+      dest: ~/root-ca.cnf
+      owner: root
+      group: root
+      mode: '0440' #--r--r--
+
+#Create root CA by running the bash script in files
+  - name: Run create root CA script
+    script: ./create_root_ca.sh
+    args:
+      creates: ~/ca/root-ca/db/root-ca.db
+
+#2. Create Signing CA
+
+#Create signing directory - Private
+  - name: Create signing private directory
+    file:
+      path: ca/signing-ca/private
+      state: directory
+      recurse: true
+      mode: '0700'
+
+#Create signing directory - db
+  - name: Create signing private directory
+    file:
+      path: ca/signing-ca/db
+      state: directory
+      recurse: true
+      mode: '0700'
+
+#Create signing directory - crl
+  - name: Create signing crl directory
+    file:
+      path: certs
+      state: directory
+      recurse: true
+      mode: '0700'
+
+#Create signing directory - certs
+  - name: Create signing certs directory
+    file:
+      path: certs
+      state: directory
+      recurse: true
+      mode: '0700'
+
+
