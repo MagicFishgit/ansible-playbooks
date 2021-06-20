@@ -15,7 +15,7 @@
         state: present
 
     - name: Allow 'sudo' group to have passwordless sudo
-     lineinfile:
+      lineinfile:
         path: /etc/sudoers
         state: present
         regexp: '^%sudo'
