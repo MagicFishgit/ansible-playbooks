@@ -52,8 +52,8 @@
          state: latest
 
   #Install system packages
-    #- name: Install required system packages
-      #apt: name={{ sys_packages }} state=latest
+    - name: Install required system packages
+      apt: name={{ sys_packages }} state=latest
 
  # UFW Setup
     - name: UFW - Allow SSH connections
