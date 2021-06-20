@@ -10,11 +10,11 @@
       #mode: 0700
 
 #Add easy-rsa to PATH. Wont be needed for long.
-  - name: Add easyrsa to PATH
-    ansible.builtin.lineinfile:
-      path: root/.bashrc
-      regexp: '^export PATH=$PATH'
-      line: export PATH=/usr/share/easy-rsa:$PATH
+  - #name: Add easyrsa to PATH
+    #ansible.builtin.lineinfile:
+      #path: root/.bashrc
+      #regexp: '^export PATH=$PATH'
+      #line: export PATH=/usr/share/easy-rsa:$PATH
 
  #Initialise the PKI inside the easy-rsa directory
   - name: Initialise PKI in easy-rsa
