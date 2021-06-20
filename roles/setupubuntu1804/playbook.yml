@@ -50,7 +50,7 @@
       apt: update_cache=yes
 
     - name: Upgrade apt packages
-      apt: Upgrade=yes
+      apt: upgrade
 
   #Install system packages
     - name: Install required system packages
