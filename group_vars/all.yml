@@ -1,2 +1,5 @@
 ansible_python_interpreter: /usr/bin/python3
 ansible_user: root
+
+vars_files:
+    - vars/default.yml
