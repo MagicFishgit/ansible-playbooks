@@ -2,10 +2,10 @@
   - hosts: 167.99.202.45
     become: true
     roles:
-    - role: ubuntu
+    - role: ubuntu_base
     - role: ca
   - hosts: 167.99.200.238
     become: true
     roles:
-    - role: ubuntu
+    - role: ubuntu_base
     - role: openvpn
