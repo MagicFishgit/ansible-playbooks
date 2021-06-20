@@ -1,0 +1,20 @@
+#Install system packages - easyrsa
+  - name: Install required system packages
+    apt: name={{ sys_packages }} state=latest
+
+#Create Public Key Infrastructure Directory (PKI)
+  - name: Create easy-rsa directory
+    file:
+      path: ~/easy-rsa
+      state: directory
+      mode: 0700
+
+  - name: Add easyrsa to $PATH
+    ansible.builtin.lineinfile:
+      path: /home/admin/.bashrc
+      regexp: '^export PATH=$PATH'
+      line: export PATH=/usr/share/easy-rsa:$PATH
+
+ #Initialise the PKI inside the easy-rsa directory
+  - name: Initialise PKI in easy-rsa
+    ansible.builtin.command: /usr/share/easyrsa init-pki
