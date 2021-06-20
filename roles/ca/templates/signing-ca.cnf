@@ -25,7 +25,7 @@ req_extensions          = ca_reqext             # Desired extensions
 [ ca_dn ]
 0.domainComponent       = "za"
 1.domainComponent       = "co"
-2.domainComponent       = "MagicFish"
+2.domainComponent       = "magicfish"
 organizationName        = "MagicFish Inc"
 organizationalUnitName  = "MagicFish CA"
 commonName              = "MagicFish CA"
