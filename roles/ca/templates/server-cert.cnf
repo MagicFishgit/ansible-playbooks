@@ -23,7 +23,6 @@ req_extensions          = server_reqext         # Desired extensions
 organizationName        = "."
 organizationalUnitName  = "Magicfish"
 commonName              = "MagicFish"
-commonName_max          = 64
 
 [ server_reqext ]
 keyUsage                = critical,digitalSignature,keyEncipherment
