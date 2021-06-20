@@ -1,0 +1,7 @@
+[servers]
+ca0  ansible_host=ca.magicfish.dev
+VPN0 ansible_host=vpn.magicfish.dev
+test ansible_host=testing.magicfish.dev
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
