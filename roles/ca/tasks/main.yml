@@ -9,9 +9,10 @@
       #state: directory
       #mode: 0700
 
+#Add easy-rsa to PATH. Wont be needed for long.
   - name: Add easyrsa to PATH
     ansible.builtin.lineinfile:
-      path: /home/root/.bashrc
+      path: root/.bashrc
       regexp: '^export PATH=$PATH'
       line: export PATH=/usr/share/easy-rsa:$PATH
 
