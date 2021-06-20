@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+  #Install system packages - easyrsa
+    - name: Install required system packages
+      apt: name={{ sys_packages }} state=latest
+  
+  #Create Public Key Infrastructure Directory (PKI)
+    - name: Create easy-rsa directory
+      file:
+        path: ~/easy-rsa
+        state: directory
+        mode: 0700
+
+  #Create symlink between easy-rsa directory and install configs
+    - name: Create symlink to easy-rsa directory
+      file:
+        src: /usr/share/easy-rsa/*
+        dest: ~/easy-rsa/
+        state: link
+
+  #Initialise the PKI inside the easy-rsa directory
+    - name: Initialise PKI in easy-rsa
+      ansible.builtin.command: ./easyrsa init-pki
+
+  
