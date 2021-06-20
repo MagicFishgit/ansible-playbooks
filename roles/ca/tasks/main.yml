@@ -1,21 +1,35 @@
-#Install system packages - easyrsa
+#Install system packages - easyrsa - deprecated
   - name: Install required system packages
     apt: name={{ sys_packages }} state=latest
 
-#Create Public Key Infrastructure Directory (PKI)
-  - #name: Create easy-rsa directory
-    #file:
-      #path: ~/easy-rsa
-      #state: directory
-      #mode: 0700
+#Create Root directory - Private
+  - name: Create root private directory
+    file:
+      path: ca/root-ca/private
+      state: directory
+      recurse: true
+      mode: '0700'
 
-#Add easy-rsa to PATH. Wont be needed for long.
-  - #name: Add easyrsa to PATH
-    #ansible.builtin.lineinfile:
-      #path: root/.bashrc
-      #regexp: '^export PATH=$PATH'
-      #line: export PATH=/usr/share/easy-rsa:$PATH
+#Create Root directory - DB
+  - name: Create root db directory
+    file:
+      path: ca/root-ca/db
+      state: directory
+      recurse: true
+      mode: '0700'
 
- #Initialise the PKI inside the easy-rsa directory
-  - name: Initialise PKI in easy-rsa
-    command: /usr/share/easy-rsa/easyrsa init-pki
+#Create Root directory - crl
+  - name: Create root crl directory
+    file:
+      path: crl
+      state: directory
+      recurse: true
+      mode: '0700'
+
+#Create Root directory - crl
+  - name: Create root certs directory
+    file:
+      path: certs
+      state: directory
+      recurse: true
+      mode: '0700'
