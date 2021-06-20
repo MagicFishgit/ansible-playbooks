@@ -99,3 +99,20 @@
     script: ./create_signing_ca.sh
     args:
       creates: ~/ca/root-ca/db/signing-ca.db
+
+#3. Create TLS server cert and certificate and sign it.
+
+#Copy TLS server cert config to host from template folder
+  - name: Copy TLS server cert config to host
+    template:
+      src: ./server-cert.cnf
+      dest: ~/server-cert.cnf
+      owner: root
+      group: root
+      mode: '0440' #--r--r--
+
+#Create TLS server cert and sign it by running the bash script in files
+  - name: Run sign server script
+    script: ./sign_server_cert.sh
+    #args:
+      #creates: ~/ca/signing-ca/02.pem
