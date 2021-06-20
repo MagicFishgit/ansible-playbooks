@@ -10,7 +10,7 @@
       mode: 0700
 
   - name: Add easyrsa to PATH
-    ansible.bultin.lineinfile:
+    ansible.builtin.lineinfile:
       path: /home/admin/.bashrc
       regexp: '^export PATH=$PATH'
       line: export PATH=/usr/share/easy-rsa:$PATH
