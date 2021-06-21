@@ -1,5 +1,7 @@
 #Sync signed VPN cert  
     - name: Copy the file from CA to VPN using Method Pull
+      hosts: ca.magicfish.dev
+      user: root
       tags: sync-pull
       synchronize:
         src: "{{ item }}"
