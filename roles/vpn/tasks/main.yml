@@ -9,4 +9,4 @@
       register: syncfile
       run_once: true
       with_items:
-       - "/certs/vpn.magicfish.dev.crt"
+       - "/root/certs/vpn.magicfish.dev.crt"
