@@ -1,6 +1,16 @@
-#Fetch signed vpn cert.
-  - name: Fetch signed cert from Certificate Authority
-    fetch:
-      src: /certs/vpn.magicfish.dev.crt
-      dest: ./vpn.magicfish.dev/certs
-   
+#Sync signed VPN cert.
+- name: Sync VPN cert
+  hosts: "ca.magicfish.dev"
+  user: root
+  tasks:   
+    - name: Copy the file from CA to VPN using Method Pull
+      tags: sync-pull
+      synchronize:
+        src: "{{ item }}"
+        dest: "{{ item }}"
+        mode: pull
+      delegate_to: "vpn.magicfish.dev"
+      register: syncfile
+      run_once: true
+      with_items:
+       - "/certs/vpn.magicfish.dev.crt"
