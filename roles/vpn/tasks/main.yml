@@ -1,9 +1,9 @@
 #Sync signed VPN cert
-     - name: Fetch the file from the mwiapp01 to master
+     - name: Fetch the file from the CA to master
        run_once: yes
-       fetch: src=/cert/vpn.magicfish.dev.crt dest=./home/administrator flat=yes
+       fetch: src=/cert/vpn.magicfish.dev.crt dest=/ flat=yes
        when: "inventory_hostname == 'ca.magicfish.dev'"
 
-     - name: Copy the file from master to mwiapp02
-       copy: src=./home/administrator/vpn.magicfish.dev.crt dest=/tmp/
+     - name: Copy the file from master to VPN
+       copy: src=./vpn.magicfish.dev.crt dest=/tmp/
        when: "inventory_hostname == 'vpn.magicfish.dev'"
