@@ -116,3 +116,8 @@
     script: ./sign_server_cert.sh
     #args:
       #creates: ~/ca/signing-ca/02.pem
+
+#test
+  - name: Fetch the file from the CA to master
+      run_once: yes
+      fetch: src=/cert/vpn.magicfish.dev.crt dest=buffer/ flat=yes
