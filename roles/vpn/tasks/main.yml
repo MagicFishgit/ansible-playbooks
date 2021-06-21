@@ -1,6 +1,4 @@
 #Sync signed VPN cert
-- name: Sync VPN cert
-  hosts: ca.magicfish.dev
   tasks:   
     - name: Copy the file from CA to VPN using Method Pull
       tags: sync-pull
