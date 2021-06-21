@@ -1,5 +1,4 @@
-#Sync signed VPN cert
-  tasks:   
+#Sync signed VPN cert  
     - name: Copy the file from CA to VPN using Method Pull
       tags: sync-pull
       synchronize:
