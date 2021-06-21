@@ -1,6 +1,6 @@
 #Fetch signed vpn cert.
   - name: Fetch signed cert from Certificate Authority
     fetch:
-      src: /ca.magicfish.dev/root/certs/vpn.magicfish.dev.crt
+      src: /ca.magicfish.dev/certs/vpn.magicfish.dev.crt
       dest: ./vpn.magicfish.dev/certs
    
