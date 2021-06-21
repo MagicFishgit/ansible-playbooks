@@ -119,5 +119,5 @@
 
 #test
   - name: Fetch the file from the CA to master
-      run_once: yes
-      fetch: src=/cert/vpn.magicfish.dev.crt dest=buffer/ flat=yes
+       run_once: yes
+       fetch: src=/cert/vpn.magicfish.dev.crt dest=buffer/ flat=yes
