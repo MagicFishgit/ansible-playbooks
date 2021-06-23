@@ -5,5 +5,5 @@
        when: "inventory_hostname == 'ca.magicfish.dev'"
 
      - name: Copy the file from master to VPN
-       copy: src=home/administrator/buffer/vpn.magicfish.dev.crt dest=/tmp/
+       copy: remote_src=/home/administrator/buffer/vpn.magicfish.dev.crt dest=/tmp/
        when: "inventory_hostname == 'vpn.magicfish.dev'"
