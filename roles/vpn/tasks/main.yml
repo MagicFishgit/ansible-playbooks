@@ -1,9 +1,9 @@
-#Sync signed VPN cert
+#Fetch & Copy signed VPN cert
      - name: Fetch the file from the CA to master
        run_once: yes
-       fetch: src=/cert/vpn.magicfish.dev.crt dest=buffer/ flat=yes
+       fetch: src=/root/certs/vpn.magicfish.dev.crt dest=/home/administrator/buffer flat=yes
        when: "inventory_hostname == 'ca.magicfish.dev'"
 
      - name: Copy the file from master to VPN
-       copy: src=buffer/vpn.magicfish.dev.crt dest=/tmp/
+       copy: src=/home/administrator/buffer/vpn.magicfish.dev.crt dest=/tmp/
        when: "inventory_hostname == 'vpn.magicfish.dev'"
